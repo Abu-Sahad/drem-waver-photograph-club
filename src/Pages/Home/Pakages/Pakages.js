@@ -11,7 +11,7 @@ const Pakages = () => {
             .then(data => setPakages(data));
     }, [])
     return (
-        <div className='container'>
+        <div id='pakages' className='container'>
             <div className="row">
                 <h1 className='text-primary text-center mt-5'> Our Pakages</h1>
                 <div className="pakages-container">
