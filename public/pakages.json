@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Bronze Pakage",
+    "price": 12000,
+    "discription": "Max 3 Hours services in the event And Not video and photos edit pakage",
+    "img": "https://i.ibb.co/GxXXh4x/thomas-william-Q3-Pzw-HKp-Edc-unsplash.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Gold Pakage",
+    "price": 14000,
+    "discription": "Max 4 Hours Service in event and 50 photos and not video edit pakage",
+    "img": "https://i.ibb.co/Swx7jsR/victoria-priessnitz-MMNg-Gs-FEbu-I-unsplash.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Silver Pakage",
+    "price": 15500,
+    "discription": "Max 5 Hours service in event and 100 photo and 1 video edit pakage ",
+    "img": "https://i.ibb.co/3h2w37N/eugenivy-now-1-Bs2s-Z9f-D2-Q-unsplash.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Dimond Pakage",
+    "price": 30000,
+    "discription": "Max 12 Hours Services in event and 200 photo and 5 video edit pakage",
+    "img": "https://i.ibb.co/WGZxxmF/ulyana-tim-Abn-CRg-L2-DNs-unsplash.jpg"
+  }
+]
