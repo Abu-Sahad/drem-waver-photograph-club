@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { updateProfile } from 'firebase/auth';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const [
@@ -11,18 +12,26 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
 
-    const handleRegister = event => {
+    const handleRegister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(event.target.name.value, event.target.email.value, event.target.password.value)
-        createUserWithEmailAndPassword(email, password)
-        //await updateProfile({ displayName: name });
-        navigate('/home');
+        const agree = event.target.terms.checked;
+        if (agree) {
+            await createUserWithEmailAndPassword(email, password)
+        }
+
+        await updateProfile({ displayName: name });
+        alert('updated profile')
+        if (user) {
+            navigate('/home');
+        }
+
     }
     const navigateLogin = () => {
         navigate('/login');
@@ -40,9 +49,6 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control name="email" type="email" placeholder="Enter email" required />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -50,13 +56,14 @@ const Register = () => {
                     <Form.Control name="password" type="password" placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check name='terms' type="checkbox" label="Accept Terms And Condition" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
             <p>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
