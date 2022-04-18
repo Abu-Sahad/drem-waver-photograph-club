@@ -13,7 +13,7 @@ const Pakages = () => {
     return (
         <div id='pakages' className='container'>
             <div className="row">
-                <h1 className='text-primary text-center mt-5'> Our Pakages</h1>
+                <h1 className='text-primary text-center mt-5'>My Pakages</h1>
                 <div className="pakages-container">
                     {
                         pakages.map(pakage => <Pakage
