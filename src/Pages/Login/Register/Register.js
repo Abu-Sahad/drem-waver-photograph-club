@@ -3,14 +3,13 @@ import { Button, Form, Toast } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { updateProfile } from 'firebase/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 let errorElement;
-
+//Resitration Form
 const Register = () => {
     const [
         createUserWithEmailAndPassword,
@@ -24,11 +23,11 @@ const Register = () => {
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
     }
-
+    //Spinner added loadding
     if (loading || updating) {
         return <Loading></Loading>
     }
-
+    // Registration Submit 
     const handleRegister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;

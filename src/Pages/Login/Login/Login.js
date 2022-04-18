@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Login Form
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -33,7 +34,7 @@ const Login = () => {
     if (loading) {
         return <Loading></Loading>
     }
-
+    //Form Submit
     const handleSubmit = event => {
         event.preventDefault()
         const email = emailRef.current.value;
@@ -46,6 +47,7 @@ const Login = () => {
     const navigateRegister = event => {
         Navigate('/register');
     }
+    //Password Reset
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {

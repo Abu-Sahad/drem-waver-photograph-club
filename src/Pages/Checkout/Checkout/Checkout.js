@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 const Checkout = () => {
     return (
         <div className='container container w-50 mx-auto py-5'>
+            {/* //CheckOut Form */}
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label> Name</Form.Label>

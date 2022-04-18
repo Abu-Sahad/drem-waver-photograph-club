@@ -10,4 +10,4 @@ This project was bootstrapped with [Dream Weaver Photograph club](https://github
 - About page to my self name , goal How you will work hard to achieve your goal added.
 
 ##Technology used
-- HTML,CSS,React-bootstrap,react,firebase,react firebase hooks,React-Toastify,
+- HTML,CSS,React-bootstrap,react,firebase,react firebase hooks,React-Toastify
